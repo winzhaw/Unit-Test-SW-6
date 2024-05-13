@@ -65,11 +65,16 @@ public class TicTacToe {
             for (int j = 0; j < 3; j++) {
                 if (board[i][j] == '-') {
                     isFull = false; // Es gibt noch leere Felder
+                    break;
                 }
+            }
+            if (!isFull) { // Wenn ein leeres Feld gefunden wurde, brechen wir die Schleife ab
+                break;
             }
         }
         return isFull ? 'T' : '-'; // Wenn voll und kein Gewinner, dann Unentschieden ('T'), sonst weiter spielen ('-')
-    }    
+    }
+    
 
     public void resetGame() {
         initializeBoard();

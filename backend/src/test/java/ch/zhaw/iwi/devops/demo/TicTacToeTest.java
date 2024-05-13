@@ -149,5 +149,25 @@ public class TicTacToeTest {
     game.playMove(2, 1); // Spieler O gewinnt
     assertEquals('-', game.checkWinner(), "Spieler O sollte gewonnen haben, indem er die zweite Spalte komplettiert.");
 }
+    @Test
+    void testWinnerMainDiagonal() {
+    game.playMove(0, 0); // Spieler X
+    game.playMove(0, 1); // Spieler O
+    game.playMove(1, 1); // Spieler X
+    game.playMove(0, 2); // Spieler O
+    game.playMove(2, 2); // Spieler X gewinnt auf Hauptdiagonale
+    assertEquals('X', game.checkWinner(), "Spieler X sollte gewonnen haben, indem er die Hauptdiagonale von links oben nach rechts unten komplettiert.");
+}
+
+    @Test
+    void testWinnerAntiDiagonal() {
+    game.playMove(0, 2); // Spieler X
+    game.playMove(0, 1); // Spieler O
+    game.playMove(1, 1); // Spieler X
+    game.playMove(0, 0); // Spieler O
+    game.playMove(2, 0); // Spieler X gewinnt auf Nebendiagonale
+    assertEquals('X', game.checkWinner(), "Spieler X sollte gewonnen haben, indem er die Nebendiagonale von rechts oben nach links unten komplettiert.");
+}
+
 
 }
