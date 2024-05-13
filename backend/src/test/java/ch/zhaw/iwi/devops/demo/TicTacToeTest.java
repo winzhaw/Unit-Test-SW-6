@@ -97,6 +97,19 @@ public class TicTacToeTest {
     game.playMove(1, 1); // Spieler O nimmt das Feld (1,1)
     assertEquals('X', game.getCurrentPlayer(), "Nach dem Zug von Spieler O sollte Spieler X an der Reihe sein.");
 }
+    @Test
+    void testDetectTie() {
+    game.playMove(0, 0); // X
+    game.playMove(0, 1); // O
+    game.playMove(0, 2); // X
+    game.playMove(1, 0); // O
+    game.playMove(1, 1); // X
+    game.playMove(1, 2); // O
+    game.playMove(2, 0); // X
+    game.playMove(2, 1); // O
+    game.playMove(2, 2); // X
+    assertEquals('X', game.checkWinner(), "Das Spiel sollte unentschieden enden, wenn alle Felder besetzt sind ohne Gewinner.");
+}
 
 
 }
