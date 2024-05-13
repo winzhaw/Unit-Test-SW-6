@@ -123,6 +123,4 @@ public class TicTacToeTest {
     }
     assertEquals('X', game.getCurrentPlayer(), "Nach dem Zurücksetzen sollte Spieler X beginnen.");
 }
-
-
 }

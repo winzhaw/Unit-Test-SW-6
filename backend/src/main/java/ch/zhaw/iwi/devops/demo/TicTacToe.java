@@ -69,4 +69,8 @@ public class TicTacToe {
         }
         return 'T'; // Tie
     }
+    public void resetGame() {
+        initializeBoard();
+        currentPlayer = 'X'; // X beginnt immer
+    }    
 }
