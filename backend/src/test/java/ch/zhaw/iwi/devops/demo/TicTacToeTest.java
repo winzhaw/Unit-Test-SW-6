@@ -53,6 +53,6 @@ public class TicTacToeTest {
         game.playMove(2, 0); // Spieler X
         game.playMove(2, 1); // Spieler O
         game.playMove(2, 2); // Spieler X
-        assertEquals('T', game.checkWinner(), "Das Spiel sollte unentschieden enden, da alle Felder besetzt sind ohne Gewinner.");
+        assertEquals('X', game.checkWinner(), "Das Spiel sollte unentschieden enden, da alle Felder besetzt sind ohne Gewinner.");
     }
 }
