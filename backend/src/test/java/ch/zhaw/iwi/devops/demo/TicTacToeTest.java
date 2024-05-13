@@ -123,4 +123,21 @@ public class TicTacToeTest {
     }
     assertEquals('X', game.getCurrentPlayer(), "Nach dem Zurücksetzen sollte Spieler X beginnen.");
 }
+    @Test
+    void testGameContinuation() {
+    game.playMove(0, 0); // Spieler X
+    game.playMove(0, 1); // Spieler O
+    assertTrue(game.canContinue(), "Das Spiel sollte fortgesetzt werden können, da noch Felder frei sind und kein Gewinner feststeht.");
+
+    // Füllen des restlichen Spielfelds, ohne einen Gewinner zu kreieren
+    game.playMove(0, 2); // Spieler X
+    game.playMove(1, 0); // Spieler O
+    game.playMove(1, 1); // Spieler X
+    game.playMove(1, 2); // Spieler O
+    game.playMove(2, 0); // Spieler X
+    game.playMove(2, 1); // Spieler O
+    game.playMove(2, 2); // Spieler X
+    assertFalse(game.canContinue(), "Das Spiel sollte nicht fortgesetzt werden können, da keine Felder mehr frei sind.");
+}
+    
 }

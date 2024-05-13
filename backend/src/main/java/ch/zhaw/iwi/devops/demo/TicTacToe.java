@@ -27,7 +27,7 @@ public class TicTacToe {
         return false;
     }
 
-    public void switchPlayer() {
+    private void switchPlayer() {
         currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
     }
 
@@ -69,8 +69,23 @@ public class TicTacToe {
         }
         return 'T'; // Tie
     }
+
     public void resetGame() {
         initializeBoard();
         currentPlayer = 'X'; // X beginnt immer
-    }    
+    }
+
+    public boolean canContinue() {
+        if (checkWinner() != '-' && checkWinner() != 'T') {
+            return false; // Spiel endet, wenn ein Gewinner oder ein Unentschieden feststeht
+        }
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == '-') {
+                    return true; // Spiel kann fortgesetzt werden, wenn es noch leere Felder gibt
+                }
+            }
+        }
+        return false; // Keine leeren Felder, Spiel kann nicht fortgesetzt werden
+    }
 }
