@@ -38,4 +38,5 @@ jacocoTestReport {
 		csv.required = false 
 		xml.destination(file("${rootProject.projectDir}/target/site/jacoco/cov.xml"))
 	}
+	
 }
