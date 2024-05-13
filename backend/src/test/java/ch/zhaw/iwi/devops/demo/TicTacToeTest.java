@@ -74,4 +74,21 @@ public class TicTacToeTest {
         game.playMove(2, 2); // Spieler X
         assertEquals('X', game.checkWinner(), "Das Spiel sollte unentschieden enden, da alle Felder besetzt sind ohne Gewinner.");
     }
+    @Test
+    void testAttemptToTakeOccupiedField() {
+    game.playMove(0, 0); // Spieler X nimmt das Feld (0,0)
+    assertFalse(game.playMove(0, 0), "Spieler O sollte nicht in der Lage sein, ein bereits von Spieler X besetztes Feld zu nehmen.");
+    assertEquals('X', game.getBoard()[0][0], "Das Feld (0,0) sollte immer noch von Spieler X besetzt sein.");
+}
+
+    @Test
+    void testAttemptToTakeMultipleOccupiedFields() {
+    game.playMove(1, 1); // Spieler X nimmt das Feld (1,1)
+    assertFalse(game.playMove(1, 1), "Spieler O sollte nicht in der Lage sein, ein bereits von Spieler X besetztes Feld zu nehmen.");
+    game.playMove(2, 2); // Spieler O nimmt das Feld (2,2)
+    assertFalse(game.playMove(2, 2), "Spieler X sollte nicht in der Lage sein, ein bereits von Spieler O besetztes Feld zu nehmen.");
+    assertEquals('X', game.getBoard()[1][1], "Das Feld (1,1) sollte von Spieler X besetzt sein.");
+    assertEquals('O', game.getBoard()[2][2], "Das Feld (2,2) sollte von Spieler O besetzt sein.");
+}
+
 }
