@@ -110,6 +110,19 @@ public class TicTacToeTest {
     game.playMove(2, 2); // X
     assertEquals('X', game.checkWinner(), "Das Spiel sollte unentschieden enden, wenn alle Felder besetzt sind ohne Gewinner.");
 }
+    @Test
+    void testResetGame() {
+    game.playMove(0, 0); // Spieler X
+    game.playMove(1, 1); // Spieler O
+    game.resetGame(); // Zurücksetzen des Spiels
+    char[][] board = game.getBoard();
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            assertEquals('-', board[i][j], "Nach dem Zurücksetzen sollte das Spielfeld leer sein.");
+        }
+    }
+    assertEquals('X', game.getCurrentPlayer(), "Nach dem Zurücksetzen sollte Spieler X beginnen.");
+}
 
 
 }
