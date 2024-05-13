@@ -139,5 +139,15 @@ public class TicTacToeTest {
     game.playMove(2, 2); // Spieler X
     assertFalse(game.canContinue(), "Das Spiel sollte nicht fortgesetzt werden können, da keine Felder mehr frei sind.");
 }
-    
+    @Test
+    void testWinnerColumnFull() {
+    game.playMove(0, 1); // Spieler X
+    game.playMove(0, 0); // Spieler O
+    game.playMove(1, 1); // Spieler X
+    game.playMove(1, 0); // Spieler O
+    game.playMove(2, 2); // Spieler X
+    game.playMove(2, 1); // Spieler O gewinnt
+    assertEquals('-', game.checkWinner(), "Spieler O sollte gewonnen haben, indem er die zweite Spalte komplettiert.");
+}
+
 }
