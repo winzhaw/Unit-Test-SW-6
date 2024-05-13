@@ -90,5 +90,13 @@ public class TicTacToeTest {
     assertEquals('X', game.getBoard()[1][1], "Das Feld (1,1) sollte von Spieler X besetzt sein.");
     assertEquals('O', game.getBoard()[2][2], "Das Feld (2,2) sollte von Spieler O besetzt sein.");
 }
+    @Test
+    void testPlayerSwitchAfterEachMove() {
+    game.playMove(0, 0); // Spieler X nimmt das Feld (0,0)
+    assertEquals('O', game.getCurrentPlayer(), "Nach dem Zug von Spieler X sollte Spieler O an der Reihe sein.");
+    game.playMove(1, 1); // Spieler O nimmt das Feld (1,1)
+    assertEquals('X', game.getCurrentPlayer(), "Nach dem Zug von Spieler O sollte Spieler X an der Reihe sein.");
+}
+
 
 }
